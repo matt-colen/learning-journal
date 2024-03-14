@@ -1,0 +1,68 @@
+:root {
+  --font-body: "Source Sans 3", sans-serif;
+  --font-logo-text: "Roboto", sans-serif;
+  --clr-logo-text: #0e0e0e;
+  --clr-nav-link: #090909;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: var(--font-body);
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Utility  */
+.flex {
+  display: flex;
+}
+
+.flex--align-center {
+  align-items: center;
+}
+
+/* Layout  */
+.grid {
+  display: grid;
+}
+
+/* Nav  */
+.nav-list {
+  list-style-type: none;
+  justify-content: end;
+  margin: 1.5em;
+}
+
+.nav-logo {
+  margin-right: auto;
+}
+
+.nav-logo__link {
+  gap: 0.29em;
+}
+
+.nav-logo__img {
+  width: 2.14em;
+}
+
+.nav-logo__text {
+  font-family: var(--font-logo-text);
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.082;
+  letter-spacing: -0.601px;
+  color: var(--clr-logo-text);
+}
+
+.nav-link {
+  color: var(--clr-nav-link);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-left: 3.88em;
+}
