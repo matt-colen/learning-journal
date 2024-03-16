@@ -5,7 +5,10 @@
   --clr-nav-link: #090909;
   --clr-white: #fff;
   --outside-spacing: 4%;
+  --nav-spacing: 4%;
+  --section-spacing: 3.31em;
   --post-img-height: 232px;
+  --radius-soft: 3px;
 }
 
 *,
@@ -21,6 +24,10 @@ a {
   text-decoration: none;
 }
 
+p {
+  line-height: 1.5;
+}
+
 /* Utility  */
 .flex {
   display: flex;
@@ -30,11 +37,15 @@ a {
   align-items: center;
 }
 
+.grid {
+  display: grid;
+}
+
 /* Nav  */
 .nav-list {
   list-style-type: none;
   justify-content: end;
-  margin: 1.5em var(--outside-spacing);
+  margin: 1.5em var(--nav-spacing);
   gap: 3.88em;
 }
 
@@ -65,17 +76,32 @@ a {
   text-transform: uppercase;
 }
 
-/* Posts  */
+/* Posts Section */
 .posts-section {
-  display: grid;
-  grid-template: 1.5fr 1fr / repeat(auto-fit, minmax(350px, 1fr));
-  gap: 1.625em;
+  grid-template: auto / var(--outside-spacing) 1fr var(--outside-spacing);
+  grid-template-areas:
+    "hero hero hero"
+    ". posts .";
+}
+
+.post-img__container {
+  position: relative;
 }
 
 .post-img {
   height: var(--post-img-height);
   width: 100%;
   object-fit: cover;
+  border-radius: var(--radius-soft);
+}
+
+.post-img__overlay {
+  background: rgba(211, 211, 211, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .post-date {
@@ -90,20 +116,15 @@ a {
 
 /* Hero Post  */
 .hero-post {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template: auto / repeat(3, 1fr);
-  grid-template-areas:
-    ". . ."
-    "content content .";
-  color: var(--clr-white);
+  grid-area: hero;
   padding: 0 var(--outside-spacing);
+  color: var(--clr-white);
   position: relative;
 }
 
 .hero-post__content {
-  grid-area: content;
-  z-index: 1;
+  max-width: 500px;
+  padding: 25vh 0;
 }
 
 .hero-post__img,
@@ -116,13 +137,25 @@ a {
 }
 
 .hero-post__img {
-  z-index: -1;
+  z-index: -2;
 }
 
 .hero-post__img-overlay {
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.31) 0%,
-    rgba(0, 0, 0, 0.31) 100%
-  );
+  background: #000;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+/* Additional Posts  */
+.additional-posts {
+  grid-area: posts;
+  padding: var(--section-spacing) 0;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+@media (min-width: 1000px) {
+  :root {
+    --outside-spacing: 15%;
+    --nav-spacing: 3.31em;
+  }
 }
