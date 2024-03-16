@@ -3,12 +3,17 @@
   --font-logo-text: "Roboto", sans-serif;
   --clr-logo-text: #0e0e0e;
   --clr-nav-link: #090909;
+  --clr-post-title: #141414;
+  --clr-post-preview: #505050;
   --clr-white: #fff;
+  --clr-footer-text: #ececec;
+  --clr-footer-bg: #202020;
   --outside-spacing: 4%;
   --nav-spacing: 4%;
   --section-spacing: 3.31em;
   --post-img-height: 232px;
   --radius-soft: 3px;
+  font-size: 17px;
 }
 
 *,
@@ -35,6 +40,10 @@ p {
 
 .flex--align-center {
   align-items: center;
+}
+
+.flex--column {
+  flex-flow: column;
 }
 
 .grid {
@@ -77,7 +86,7 @@ p {
 }
 
 /* Posts Section */
-.posts-section {
+.posts-container {
   grid-template: auto / var(--outside-spacing) 1fr var(--outside-spacing);
   grid-template-areas:
     "hero hero hero"
@@ -106,12 +115,19 @@ p {
 
 .post-date {
   text-transform: uppercase;
+  font-size: 0.88rem;
 }
 
 .post-title {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   line-height: 1.082;
   letter-spacing: -1.2px;
+  color: var(--clr-post-title);
+}
+
+.post-preview {
+  color: var(--clr-post-preview);
+  line-height: 1.25;
 }
 
 /* Hero Post  */
@@ -122,9 +138,23 @@ p {
   position: relative;
 }
 
+.post-date--hero {
+  font-size: 1rem;
+}
+
+.post-title--hero {
+  font-size: 2.5rem;
+}
+
+.post-title--hero,
+.post-preview--hero {
+  color: #fff;
+}
+
 .hero-post__content {
-  max-width: 500px;
-  padding: 25vh 0;
+  max-width: 600px;
+  padding: 13vh 0;
+  gap: 0.5em;
 }
 
 .hero-post__img,
@@ -138,11 +168,13 @@ p {
 
 .hero-post__img {
   z-index: -2;
+  object-position: 50% 70%;
+  object-fit: cover;
 }
 
 .hero-post__img-overlay {
-  background: #000;
-  opacity: 0.4;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0))
+    55%;
   z-index: -1;
 }
 
@@ -151,11 +183,51 @@ p {
   grid-area: posts;
   padding: var(--section-spacing) 0;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.88em 1.6em;
+}
+
+.post__container {
+  gap: 0.88em;
+}
+
+.post-details {
+  gap: 0.5em;
+}
+
+.view-more-btn {
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: bold;
+  text-decoration: underline;
+  display: block;
+  margin: 0 auto 3.19em;
+}
+
+/* Buttons  */
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Footer  */
+.footer {
+  background: var(--clr-footer-bg);
+  text-align: center;
+  padding: 2.3em 0;
+  color: var(--clr-footer-text);
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 1.082;
+  letter-spacing: -0.36px;
 }
 
 @media (min-width: 1000px) {
   :root {
     --outside-spacing: 15%;
     --nav-spacing: 3.31em;
+  }
+  .hero-post__content {
+    padding: 13vw 0;
   }
 }
