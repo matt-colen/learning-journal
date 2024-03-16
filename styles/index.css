@@ -3,6 +3,7 @@
   --font-logo-text: "Roboto", sans-serif;
   --clr-logo-text: #0e0e0e;
   --clr-nav-link: #090909;
+  --clr-white: #fff;
 }
 
 *,
@@ -27,16 +28,32 @@ a {
   align-items: center;
 }
 
+.flex-column {
+  flex-flow: column;
+}
+
 /* Layout  */
 .grid {
   display: grid;
+  grid-template: auto / 3.31em 1fr 3.31em;
+  grid-template-areas:
+    ". header ."
+    "main main main";
+}
+
+.header {
+  grid-area: header;
+}
+
+.main {
+  grid-area: main;
 }
 
 /* Nav  */
 .nav-list {
   list-style-type: none;
   justify-content: end;
-  margin: 1.5em;
+  margin: 1.5em 0 1.5em;
 }
 
 .nav-logo {
@@ -65,4 +82,27 @@ a {
   font-weight: 600;
   text-transform: uppercase;
   margin-left: 3.88em;
+}
+
+/* Posts  */
+.posts-section {
+  display: grid;
+  grid-template: auto / 3.88em repeat(fit-content, minmax(309px, 1fr));
+}
+
+.post-date {
+  text-transform: uppercase;
+}
+
+.post-title {
+  font-size: 2.5rem;
+  line-height: 1.082;
+  letter-spacing: -1.2px;
+}
+
+/* Hero Post  */
+.hero-post {
+  background: url("../assets/images/blog-image-hero.png");
+  color: var(--clr-white);
+  padding: 0 3.31em 0;
 }
