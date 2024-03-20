@@ -59,3 +59,14 @@ const renderYear = () => {
 };
 
 renderYear();
+
+const toggleNavMenu = () => {
+  document.querySelector("#nav-menu").classList.toggle("hidden");
+};
+
+document.body.addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn--ham-menu")) {
+    toggleNavMenu();
+    document.body.classList.toggle("no-scroll");
+  }
+});
