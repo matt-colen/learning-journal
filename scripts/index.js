@@ -21,7 +21,7 @@ const getPostHTML = (data) => {
       `;
     } else {
       postsHTML += `
-      <div class="post__container">
+      <div class="post__container flex flex--column">
         <div class="post-img__container">
           <img class="post-img" src="${post.img}">
           <div class="post-img__overlay"></div>

@@ -1,13 +1,14 @@
 :root {
   --font-body: "Source Sans 3", sans-serif;
   --font-logo-text: "Roboto", sans-serif;
-  --clr-logo-text: #0e0e0e;
-  --clr-nav-link: #090909;
-  --clr-post-title: #141414;
-  --clr-post-preview: #505050;
-  --clr-white: #fff;
-  --clr-footer-text: #ececec;
-  --clr-footer-bg: #202020;
+  --clr-logo-text: hsl(0, 0%, 5%);
+  --clr-nav-link: hsl(0, 0%, 4%);
+  --clr-post-img-overlay: hsla(0, 0%, 83%, 0.2);
+  --clr-post-title: hsl(0, 0%, 8%);
+  --clr-post-preview: hsl(0, 0%, 31%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-footer-text: hsl(0, 0%, 93%);
+  --clr-footer-bg: hsl(0, 0%, 13%);
   --outside-spacing: 4%;
   --nav-spacing: 4%;
   --section-spacing: 3.31em;
@@ -31,6 +32,10 @@ a {
 
 p {
   line-height: 1.5;
+}
+
+img {
+  object-fit: cover;
 }
 
 /* Utility  */
@@ -95,22 +100,17 @@ p {
 
 .post-img__container {
   position: relative;
+  height: var(--post-img-height);
 }
 
 .post-img {
-  height: var(--post-img-height);
+  height: 100%;
   width: 100%;
-  object-fit: cover;
   border-radius: var(--radius-soft);
 }
 
 .post-img__overlay {
-  background: rgba(211, 211, 211, 0.2);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  background: var(--clr-post-img-overlay);
 }
 
 .post-date {
@@ -148,7 +148,7 @@ p {
 
 .post-title--hero,
 .post-preview--hero {
-  color: #fff;
+  color: var(--clr-white);
 }
 
 .hero-post__content {
@@ -158,7 +158,8 @@ p {
 }
 
 .hero-post__img,
-.hero-post__img-overlay {
+.hero-post__img-overlay,
+.post-img__overlay {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -169,7 +170,6 @@ p {
 .hero-post__img {
   z-index: -2;
   object-position: 50% 70%;
-  object-fit: cover;
 }
 
 .hero-post__img-overlay {
