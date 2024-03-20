@@ -52,7 +52,7 @@ const renderPostHTML = () =>
 
 renderPostHTML();
 
-const renderYear = () => {
+export const renderYear = () => {
   document.querySelector(
     "#footer__date"
   ).innerHTML = `Copyright &copy ${new Date().getFullYear()}`;

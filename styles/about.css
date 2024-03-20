@@ -1,0 +1,81 @@
+:root {
+  --radius-circle: 50%;
+}
+
+.main {
+  grid-template: auto / var(--outside-spacing) 1fr var(--outside-spacing);
+  grid-template-areas:
+    ". about ."
+    ". posts .";
+}
+
+/* About Section */
+.about-section {
+  grid-area: about;
+  color: var(--clr-post-title);
+  grid-template: auto / 1fr;
+  grid-template-areas:
+    "hero"
+    "text";
+  margin: 5.6875em 0 3.19em;
+}
+
+/* About Hero  */
+.about-hero {
+  grid-area: hero;
+  grid-template: auto / auto;
+  align-items: center;
+  gap: 2.06em;
+  margin-bottom: 4.06em;
+}
+
+.about-img__container {
+  background: var(--clr-footer-bg);
+  border-radius: var(--radius-circle);
+  height: 182px;
+  width: 182px;
+  overflow: hidden;
+}
+
+.about-img {
+  height: 100%;
+  width: 100%;
+}
+
+.about-hero__text {
+  gap: 0.625em;
+}
+
+.about-h1 {
+  line-height: 1.082;
+  letter-spacing: -1.08px;
+}
+
+/* About Text  */
+.about-text {
+  grid-area: text;
+  gap: 1em;
+}
+
+/* Posts Section  */
+.posts-section {
+  grid-area: posts;
+  margin-bottom: 3.19em;
+}
+
+.posts-container {
+  grid-template: auto / repeat(auto-fit, minmax(309px, 1fr));
+  gap: 1.63em;
+}
+
+@media (min-width: 1000px) {
+  .about-section {
+    grid-template: auto / 4.25em 1fr 4.25em;
+    grid-template-areas:
+      "hero hero hero"
+      ". text .";
+  }
+  .about-hero {
+    grid-template: auto / repeat(2, auto);
+  }
+}
