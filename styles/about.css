@@ -63,6 +63,11 @@
   margin-bottom: 3.19em;
 }
 
+.posts-section > h2 {
+  text-align: center;
+  margin-bottom: 1.75em;
+}
+
 .posts-container {
   grid-template: auto / repeat(auto-fit, minmax(309px, 1fr));
   gap: 1.63em;

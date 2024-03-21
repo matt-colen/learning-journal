@@ -1,4 +1,5 @@
 import postData from "./postData.js";
+import createNewPage from "./createNewPage.js";
 
 const getPostHTML = (data) => {
   let heroHTML = "";
@@ -7,7 +8,7 @@ const getPostHTML = (data) => {
   data.forEach((post, i) => {
     if (i === 0) {
       heroHTML += `
-      <div class="hero-post grid">
+      <div id="${i}" class="hero-post post grid">
         <img class="post-img hero-post__img" src="${post.img}">
         <div class="hero-post__img-overlay"></div>
         <div class="hero-post__content flex flex--column">
@@ -21,7 +22,7 @@ const getPostHTML = (data) => {
       `;
     } else {
       postsHTML += `
-      <div class="post__container flex flex--column">
+      <div id="${i}" class="post__container post flex flex--column">
         <div class="post-img__container">
           <img class="post-img" src="${post.img}">
           <div class="post-img__overlay"></div>
@@ -68,5 +69,7 @@ document.body.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn--ham-menu")) {
     toggleNavMenu();
     document.body.classList.toggle("no-scroll");
+  } else if (e.target.classList.contains("post")) {
+    createNewPage(+e.target.id);
   }
 });

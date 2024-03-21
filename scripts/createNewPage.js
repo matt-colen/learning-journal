@@ -1,28 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Me</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../styles/index.css" />
-    <link rel="stylesheet" href="../styles/about.css" />
-    <script type="module" src="../scripts/recentPosts.js" defer></script>
-  </head>
-  <body>
-    <header class="header">
+import postData from "./postData.js";
+
+const createNewPage = (i) => {
+  const newPage = document.createElement("html");
+
+  const head = document.createElement("head");
+  head.innerHTML = `
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${postData[i].title}</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../styles/index.css" />
+  <link rel="stylesheet" href="../styles/about.css" />
+  <script type="module" src="../scripts/recentPosts.js" defer></script>
+  `;
+
+  const body = document.createElement("body");
+  body.innerHTML = `
+  <header class="header">
       <nav class="nav">
         <ul class="nav-list flex flex--align-center">
           <li class="nav-logo__li">
@@ -126,5 +132,17 @@
         <p class="footer__date" id="footer__date"></p>
       </div>
     </footer>
-  </body>
-</html>
+  `;
+
+  newPage.appendChild(head);
+  newPage.appendChild(body);
+
+  // Converts the new page element to string
+  const pageHTML = newPage.outerHTML;
+
+  // Opens a new window and write the HTML content
+  const newWindow = window.open();
+  newWindow.document.write(pageHTML);
+};
+
+export default createNewPage;
